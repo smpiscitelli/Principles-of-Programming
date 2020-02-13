@@ -11,8 +11,8 @@ int main () {
     
         double val = 0;
         double val_conv = 0;
-        double smallest = 0;
-        double largest = 0;
+        double smallest = NULL;
+        double largest = NULL;
         double sum = 0;
         string unit;
         vector<double> vals;
@@ -31,7 +31,7 @@ int main () {
                 cout << "Please enter valid unit." << endl;
             sum += val_conv;
             vals.push_back(val_conv);
-            if (val_conv < smallest)
+            if (smallest == 0 || val_conv < smallest)
                 smallest = val_conv;
             else if (val_conv > largest)
                 largest = val_conv;
