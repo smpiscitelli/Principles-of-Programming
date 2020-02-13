@@ -15,19 +15,16 @@ int main () {
         vector<double> distances; // distance between cities
         for (double dist_val; cin>>dist_val; ) // read into distances
         distances.push_back(dist_val); // put dist_val into distances
-                      
+
         double sum = 0;
         double smallest_dist = 0;
         double largest_dist = 0;
-        
         for (int x : distances) sum += x;
         cout << "Total Distance: " << sum << '\n';
-       // for (int x : distances) sum += x; why does the code line below not output correct value when this line is uncommented?
         cout << "Mean Distance: " << sum/(distances.size()) << '\n';
         sort(distances.begin(), distances.end());
-        
-        smallest_dist = distances(begin);
-        largest_dist = distances(end);
+        smallest_dist = distances[0];
+        largest_dist = distances[distances.size()-1];
         cout << "Smallest distance between two cities: " << smallest_dist << endl;
         cout << "Greatest distance between two cities: " << largest_dist << endl;
 }
