@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstddef>      // std::size_t
+#include <cmath>        // std::sqrt(double)
+#include <valarray>     // std::valarray, std::sqrt(valarray)
+#include <cstdlib>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int main () {
+    
+        double val = 0;
+        double val_conv = 0;
+        double smallest = 0;
+        double largest = 0;
+        double sum = 0;
+        string unit;
+        vector<double> vals;
+    
+        while (cin >> val >> unit) {
+            // Convert input to metres to compare
+            if (unit=="cm")
+                val_conv = val/100;
+            else if (unit=="m")
+                val_conv = val;
+            else if (unit=="in")
+                val_conv = val*0.0254;
+            else if (unit=="ft")
+                val_conv = val*0.0254*12;
+            else
+                cout << "Please enter valid unit." << endl;
+            sum += val_conv;
+            vals.push_back(val_conv);
+            if (val_conv < smallest)
+                smallest = val_conv;
+            else if (val_conv > largest)
+                largest = val_conv;
+        }
+    
+        cout << "smallest value: " << smallest << " m\n";
+        cout << "largest value: " << largest << " m\n";
+        cout << "sum of values: " << sum << " m\n";
+        sort(vals.begin(), vals.end());
+        cout << "values:" << endl;
+        for (int i = 0; i<vals.size(); ++i)
+            cout << vals[i] << " m\n";
+        return 0;
+}
